@@ -1,3 +1,3 @@
 class Urls {
-  static String hotdianying = "/hotdianying";
+  static String hotdianying = "/home";
 }

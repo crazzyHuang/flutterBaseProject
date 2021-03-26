@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+// import 'package:demo1/base/http/http.dart';
 import 'package:demo1/base/http/http.dart';
+import 'package:demo1/base/http2/http_utils.dart';
 import 'package:demo1/common/urls.dart';
 import 'package:demo1/view/widdget/douban_appbar.dart';
 import 'package:flustars/flustars.dart';
@@ -29,10 +31,21 @@ class _MainPageState extends State<MainPage> {
   }
 
   void getMockData() {
-    Http.getInstance()
-        .get(Urls.hotdianying)
+    // Http.getInstance()
+    //     .get(Urls.hotdianying)
+    //     .then((value) => {
+    //           LogUtil.v(value.toString(), tag: "请求"),
+    //         })
+    //     .catchError((e) => {
+    //           LogUtil.v(e.toString()),
+    //         })
+    //     .whenComplete(() => {
+    //           LogUtil.v("请求完成"),
+    //         });
+
+    HttpUtils.get(Urls.hotdianying)
         .then((value) => {
-              LogUtil.v(value.toString(), tag: "请求"),
+              LogUtil.v(value.toString(), tag: "请求成功"),
             })
         .catchError((e) => {
               LogUtil.v(e.toString()),

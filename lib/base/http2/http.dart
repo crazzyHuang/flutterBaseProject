@@ -39,7 +39,7 @@ class Http {
       dio = new Dio(options);
 
       // 添加拦截器
-      dio.interceptors.add(ErrorInterceptor());
+      // dio.interceptors.add(ErrorInterceptor());
       // 加内存缓存
       dio.interceptors.add(NetCacheInterceptor());
       if (Global.retryEnable) {
@@ -52,7 +52,8 @@ class Http {
           ),
         );
       }
-      dio.interceptors.add(LogInterceptor());
+      dio.interceptors
+          .add(LogInterceptor(requestHeader: false, responseHeader: false));
 
       // 在调试模式下需要抓包调试，所以我们使用代理，并禁用HTTPS证书校验
       if (PROXY_ENABLE) {
